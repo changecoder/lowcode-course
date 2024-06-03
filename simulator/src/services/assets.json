@@ -1,0 +1,41 @@
+{
+  "packages": [
+    {
+      "package": "moment",
+      "version": "2.24.0",
+      "urls": [
+        "https://g.alicdn.com/mylib/moment/2.24.0/min/moment.min.js"
+      ],
+      "library": "moment"
+    },
+    {
+      "package": "lodash",
+      "library": "_",
+      "urls": [
+        "https://g.alicdn.com/platform/c/lodash/4.6.1/lodash.min.js"
+      ]
+    },
+    {
+      "package": "lowcode-material-ant-vue",
+      "version": "0.1.0",
+      "library": "LowcodeMaterialAntVue",
+      "urls": [
+        "https://unpkg.com\\lowcode-material-ant-vue@0.1.0\\dist\\index.css",
+        "https://unpkg.com\\lowcode-material-ant-vue@0.1.0\\dist\\index.js"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "exportName": "LowcodeMaterialAntVueMeta",
+      "url": "https://unpkg.com\\lowcode-material-ant-vue@0.1.0\\dist\\meta.js",
+      "package": {
+        "npm": "lowcode-material-ant-vue"
+      }
+    }
+  ],
+  "sort": {
+    "groupList": [],
+    "categoryList": []
+  }
+}
