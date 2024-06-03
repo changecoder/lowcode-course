@@ -1,14 +1,16 @@
 import { shallowRef } from 'vue'
 import { uniqueId, PublicEnumTransformStage, compatStage, isDOMText, isJSExpression, isPlainObject } from './utils'
+import { Node } from './node'
 
 export class DocumentModel {
   _blank = false
+  _opened = false
   id = uniqueId('doc')
   _nodesMap = new Map()
   _nodes = shallowRef(new Set())
 
   get nodes() {
-    return this._nodes.values
+    return this._nodes.value
   }
 
   set nodes(value) {
@@ -159,5 +161,10 @@ export class DocumentModel {
       }
     }
     return currentSchema
+  }
+
+  open() {
+    this._opened = true
+    return this
   }
 }

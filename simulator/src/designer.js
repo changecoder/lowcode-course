@@ -77,4 +77,26 @@ export class Designer {
     }
     this.props = props
   }
+
+  getComponentMeta(
+    componentName,
+    generateMetadata
+  ) {
+    if (this._componentMetasMap.has(componentName)) {
+      return this._componentMetasMap.get(componentName)
+    }
+
+    if (this._lostComponentMetasMap.has(componentName)) {
+      return this._lostComponentMetasMap.get(componentName)
+    }
+
+    const meta = new ComponentMeta(this, {
+      componentName,
+      ...(generateMetadata ? generateMetadata() : null)
+    })
+
+    this._lostComponentMetasMap.set(componentName, meta)
+
+    return meta
+  }
 }

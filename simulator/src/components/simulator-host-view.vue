@@ -13,14 +13,11 @@ const props = defineProps(['project', 'designer', 'library'])
 const { project, designer, library } = props
 const iframeRef = ref(null)
 const host = new BuiltinSimulatorHost(project, designer)
-host.setProps({
-  library
-})
 watch(() => props.library, (value) => {
   host.setProps({
     library: value
   })
-})
+}, {immediate: true})
 onMounted(() => {
   host.mountContentFrame(iframeRef.value) 
 })

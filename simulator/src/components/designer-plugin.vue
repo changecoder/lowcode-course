@@ -1,18 +1,25 @@
 <template>
-  <DesignerView
-    :componentMetadatas="componentMetadatas"
-    :simulatorProps="{
-      library,
-      utilsMetadata
-    }"
-    :designer="editor.get('designer')"
-    :editor="editor"
-  />
+  <div>
+    <div v-if="loading">Loading</div>
+    <div v-else>
+      <DesignerView
+        :componentMetadatas="componentMetadatas"
+        :simulatorProps="{
+          library,
+          utilsMetadata
+        }"
+        :designer="editor.get('designer')"
+        :editor="editor"
+      />
+    </div>
+  </div>
+
 </template>
 <script setup>
 import { ref } from 'vue'
 import DesignerView from './designer-view.vue'
 
+const loading = ref(true)
 const { editor } = defineProps(['editor'])
 const componentMetadatas = ref([])
 const library = ref([])
@@ -33,6 +40,8 @@ const setupAssets = async () => {
     }
   } catch (e) {
     console.error(e)
+  } finally {
+    loading.value = false
   }
 }
 

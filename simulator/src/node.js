@@ -40,7 +40,7 @@ export class Node {
 
   constructor(document, nodeSchema) {
     this.document = document
-    const { componentName, id } = nodeSchema
+    const { componentName, id, children, props, ...extras } = nodeSchema
     this.id = document.nextId(id)
     this.componentName = componentName
     this.props = new Props(this, props, extras)

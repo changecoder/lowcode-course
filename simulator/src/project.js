@@ -1,5 +1,6 @@
 import { ref, shallowRef } from 'vue'
 import { PublicEnumTransformStage } from './utils'
+import { DocumentModel } from './document-model'
 
 export class Project {
   _documents = shallowRef([])
@@ -101,5 +102,11 @@ export class Project {
       }
       return componentsMap
     }, [])
+  }
+
+  // 加载 schema
+  open(doc) {
+    doc = this.createDocument(doc)
+    return doc.open()
   }
 }
